@@ -17,6 +17,6 @@ class UserController extends Controller
             ->with('age', '22')
             ->with('email', 'acme@gmail.com')
             ->with('id', $id);
-    }
+    } 
 }
 
