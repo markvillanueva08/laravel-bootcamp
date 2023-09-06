@@ -1,8 +1,9 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
-
+use Illuminate\Http\Response;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,52 +22,11 @@ use Illuminate\Http\Request;
 // Route::delete();
 // Route::options();
 
-// Route::match(['get','post'], '/',  function(){
-//     return 'POST and Get is allowed';
-// });
-
-// Route::view('/welcome', 'welcome');
-
-// Route::get('/', function(){
-//     return 'redirected';
-// });
-
-// Route::redirect('/welcome', '/');
-
-//Route::permanentRedirect('/welcome', '/');
 
 Route::get('/', function(){
     return 'welcome!';
 });
 
+Route::get('/users',[UserController::class, 'index'])->name('login');
 
-// Route::get('/users', function(Request $request){
-//     dd($request);
-//     return null;
-// });
-
-// Route::get('/get-text', function(){
-//     return  response('hello world', 200);
-//            // ->header('Content-Type', 'text/plain');
-
-// });
-
-// Route::get('/user/{id}/{group}', function($id, $group){
-//     return response($id.'-'.$group, 200);
-// });
-
-
-// Route::get('/request-json',function(){
-//     return response() -> json(['name' => 'mark v', 'age' => '21']);
-// });
-
-
-// Route::get('/request-download', function(){
-    
-//     $path = public_path().'/sample.txt';
-//     $name = 'mail.txt';
-//     $headers =  array(
-//         'Content-Type : application/text-plain',
-//     );
-//     return response()->download($path, $name, $headers);
-// });
+Route::get('/users/{id}', [UserController::class, 'show'])->middleware('auth');
