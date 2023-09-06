@@ -29,4 +29,4 @@ Route::get('/', function(){
 
 Route::get('/users',[UserController::class, 'index'])->name('login');
 
-Route::get('/users/{id}', [UserController::class, 'show'])->middleware('auth');
+Route::get('/users/{id}', [UserController::class, 'show']);

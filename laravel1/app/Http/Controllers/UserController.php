@@ -11,13 +11,12 @@ class UserController extends Controller
     }
     public function show($id){
 
-        $data = array(
-        "id" => $id,
-       "name" => "mark", 
-       "age" => "22",
-       "email" => "monkeytheluffy08@gmail.com"
-     );
-        return view('user', $data);
+        
+        return view('user')
+            ->with('name', 'mark')
+            ->with('age', '22')
+            ->with('email', 'acme@gmail.com')
+            ->with('id', $id);
     }
 }
 
