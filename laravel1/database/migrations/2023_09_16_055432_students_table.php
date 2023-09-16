@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('gender');
             $table->string('age');
             $table->string('email')->unique();
+            $table->timestamps();
         });
     }
 
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('students');
     }
 };
