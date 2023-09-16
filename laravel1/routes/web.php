@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
@@ -23,10 +24,10 @@ use Illuminate\Http\Response;
 // Route::options();
 
 
-Route::get('/', function(){
-    return 'welcome!';
-});
+Route::get('/',  [StudentController::class, 'index']);
 
 Route::get('/users',[UserController::class, 'index'])->name('login');
 
 Route::get('/users/{id}', [UserController::class, 'show']);
+
+Route::get('/students', [StudentController::class, 'index']);
